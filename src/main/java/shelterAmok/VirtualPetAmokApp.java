@@ -3,6 +3,8 @@ package shelterAmok;
 import java.util.Scanner;
 
 public class VirtualPetAmokApp {
+	
+	public static void main(String[] args) {
 
 	Scanner input = new Scanner(System.in);
 	
@@ -13,12 +15,23 @@ public class VirtualPetAmokApp {
 	RoboDog odie = new  RoboDog("Odie", 10, 10, 10, 10, "loves to wag his tail");
 	RoboCat sylvester = new RoboCat("Sylvester", 10, 10, 10, 10, "loves to purr");
 	
+	shelter.addPet(clifford);
+	shelter.addPet(garfield);
+	shelter.addPet(odie);
+	shelter.addPet(sylvester);
+	
+	shelter.showAllPets();
+	
+	
+	
+	
+	
 	
 	
 	
 }
 	
-	
+}
 	
 	
 	
@@ -27,5 +40,4 @@ public class VirtualPetAmokApp {
 	
 	
 
-}
 
