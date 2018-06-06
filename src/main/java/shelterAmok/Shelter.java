@@ -22,6 +22,12 @@ public class Shelter {
 
 	public void remove(Pet anyPet) {
 		pets.remove(anyPet.getName());
+	}
+	public void adopt(Pet anyPet) {
+		pets.remove(anyPet.getName(), anyPet);
+	}
+	public Pet findPet(String petName) {
+		return pets.get(petName);
 
 	}
 
@@ -73,8 +79,15 @@ public class Shelter {
 				
 			}
 		}
-		
 	}
+	
+	public void playWithOnePet() {
+		for (Pet pet : pets.values()) {
+			pet.play();
+			}
+		}
+		
+
 
 	public void tick() {
 		for (Pet pet : pets.values()) {
@@ -113,24 +126,36 @@ public class Shelter {
 		}
 	}
 
+	public void showAllOrganicPets() {
+		for (Pet pet : pets.values()) {
+			if(pet instanceof OrganicPet) {
+				System.out.println("Name: " + pet.getName() + " Description: " + pet.getDescription() 
+				+ " Hunger level: " + ((OrganicPet)pet).getHunger() + " Thirst level: " +
+				((OrganicPet)pet).getThirst() + " Waste level: " + ((OrganicPet)pet).getWaste());
+				
+			}
+		}
+		
+	}
 	public void showAllPets() {
 		for (Pet pet : pets.values()) {
 			if(pet instanceof OrganicPet) {
-				System.out.println("Name: " + pet.getName() + " " + pet.getDescription() + " Hunger:  " 
-			+ ((OrganicPet)pet).getHunger() + "; Thirst: " + ((OrganicPet)pet).getThirst() + "; Boredom; "
-			+ ((OrganicPet)pet).getBoredom() + "; Waste in cage: " 
-			+ ((OrganicPet)pet).getWaste() + "; Health: " + ((OrganicPet)pet).getHealth() + "; Happiness:"
+				System.out.println("Name: " + pet.getName() + " " + pet.getDescription() + ". Hunger:  " 
+			+ ((OrganicPet)pet).getHunger() + " Thirst: " + ((OrganicPet)pet).getThirst() + " Boredom: "
+			+ ((OrganicPet)pet).getBoredom() + " Waste in cage: " 
+			+ ((OrganicPet)pet).getWaste() + " Health: " + ((OrganicPet)pet).getHealth() + " Happiness: "
 			+((OrganicPet)pet).getHappiness());
 			} else if 
 				(pet instanceof RoboPet) {
-					System.out.println("Name: " + pet.getName() + " " + pet.getDescription() + "Boredom: "
-						+((RoboPet)pet).getBoredom() +	" Health " + ((RoboPet)pet).getHealth() + " Happiness" 
+					System.out.println("Name: " + pet.getName() + " " + pet.getDescription() + ". Boredom: "
+						+((RoboPet)pet).getBoredom() +	" Health: " + ((RoboPet)pet).getHealth() + " Happiness: " 
 						+ ((RoboPet)pet).getHappiness() + " OilLevel: " + ((RoboPet)pet).getOilLevel());
 				}
 				
 			}
-		}
 	}
+}
+
 
 					
 					
